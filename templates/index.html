@@ -1,66 +1,41 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="zh-TW">
 <head>
-<meta charset="utf-8">
-<title>組織圖生成器</title>
-
-<style>
-
-body{
-font-family:Arial;
-text-align:center;
-margin-top:40px;
-}
-
-.upload{
-border:2px dashed #aaa;
-padding:40px;
-width:400px;
-margin:auto;
-}
-
-img{
-max-width:90%;
-margin-top:30px;
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Org Chart Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background-color: #f5f5f5; }
+        h1 { color: #333; }
+        form { margin-bottom: 20px; }
+        input[type="file"] { margin-bottom: 10px; }
+        input[type="submit"] { padding: 8px 16px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        input[type="submit"]:hover { background-color: #45a049; }
+        img { max-width: 100%; height: auto; border: 1px solid #ccc; padding: 5px; background-color: #fff; }
+        .footer { margin-top: 50px; font-size: 0.9em; color: #777; }
+        .error { color: red; font-weight: bold; }
+    </style>
 </head>
-
 <body>
+    <h1>組織圖產生器</h1>
 
-<h2>組織圖生成器</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="file">選擇 Excel 或 CSV 檔案：</label><br>
+        <input type="file" name="file" id="file" required><br>
+        <input type="submit" value="上傳並生成圖表">
+    </form>
 
-<form method="post" enctype="multipart/form-data">
+    {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+    {% endif %}
 
-<div class="upload">
+    {% if chart_image %}
+        <h2>生成的組織圖：</h2>
+        <img src="{{ chart_image }}" alt="Org Chart">
+    {% endif %}
 
-<input type="file" name="file" required>
-
-<br><br>
-
-<button type="submit">生成組織圖</button>
-
-</div>
-
-</form>
-
-{% if image %}
-
-<h3>生成結果</h3>
-
-<img src="/outputs/{{image}}">
-
-<br><br>
-
-<a href="/download/{{image}}">
-<button>下載圖片</button>
-</a>
-
-{% endif %}
-
+    <div class="footer">
+        &copy; 2026 Org Chart Generator
+    </div>
 </body>
-
 </html>

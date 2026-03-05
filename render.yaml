@@ -1,9 +1,6 @@
 services:
   - type: web
-    name: org-chart
+    name: org-chart-web
     env: python
-    buildCommand: |
-      apt-get update
-      apt-get install -y graphviz
-      pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
