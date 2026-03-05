@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>組織圖生成器</title>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+margin-top:40px;
+}
+
+.upload{
+border:2px dashed #aaa;
+padding:40px;
+width:400px;
+margin:auto;
+}
+
+img{
+max-width:90%;
+margin-top:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>組織圖生成器</h2>
+
+<form method="post" enctype="multipart/form-data">
+
+<div class="upload">
+
+<input type="file" name="file" required>
+
+<br><br>
+
+<button type="submit">生成組織圖</button>
+
+</div>
+
+</form>
+
+{% if image %}
+
+<h3>生成結果</h3>
+
+<img src="/outputs/{{image}}">
+
+<br><br>
+
+<a href="/download/{{image}}">
+<button>下載圖片</button>
+</a>
+
+{% endif %}
+
+</body>
+
+</html>
