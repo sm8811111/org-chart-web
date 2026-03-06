@@ -1,5 +1,5 @@
 Flask==3.1.2
-pandas==2.1.1
+pandas==2.0.3
 graphviz
 openpyxl==3.1.2
 gunicorn
