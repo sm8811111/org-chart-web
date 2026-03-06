@@ -2,7 +2,7 @@ setuptools>=82.0.0
 wheel
 pip>=26.0.1
 Flask==3.1.2
-pandas==2.0.3
+pandas==2.1.0
 graphviz
 openpyxl==3.1.2
 gunicorn
