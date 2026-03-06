@@ -1,8 +1,9 @@
-setuptools>=82.0.0
-wheel
-pip>=26.0.1
-Flask==3.1.2
+numpy==1.25.3
 pandas==2.0.3
+Flask==3.1.2
 graphviz
 openpyxl==3.1.2
 gunicorn
+setuptools>=82.0.0
+wheel
+pip>=26.0.1
